@@ -31,21 +31,66 @@ namespace WindowsFormsApp_241216
             //}
 
 
-            string str = "멈추지 않는 한 얼마나 천천히 가는지는 중요하지 않다. -공자";
-            string[] arr = new string[10];
-            arr[0] = str.Remove(str.IndexOf("-") - 1, 4);
-            arr[1] = str.Substring(0, str.IndexOf("-")-1);
-            arr[2] = str.Substring(str.IndexOf("얼"), 3);
-            arr[3] = str.Substring(str.IndexOf("천"), 3);
-            arr[4] = str.Substring(str.IndexOf("가"), 3);
-            arr[5] = str.Replace(".","").Replace("-","").Replace(" ", ",");
-            foreach (string a in arr)
+            //string str = "멈추지 않는 한 얼마나 천천히 가는지는 중요하지 않다. -공자";
+            //string[] arr = new string[10];
+            //arr[0] = str.Remove(str.IndexOf("-") - 1, 4);
+            //arr[1] = str.Substring(0, str.IndexOf("-")-1);
+            //arr[2] = str.Substring(str.IndexOf("얼"), 3);
+            //arr[3] = str.Substring(str.IndexOf("천"), 3);
+            //arr[4] = str.Substring(str.IndexOf("가"), 3);
+            //arr[5] = str.Replace(".","").Replace("-","").Replace(" ", ",");
+            //foreach (string a in arr)
+            //{
+            //    System.Console.WriteLine(a);
+            //    textBox_print.Text += a;
+            //    textBox_print.Text += "\r\n";
+            //}
+
+            //int[] arr = new int[2];
+            //add(arr);
+            //foreach (int a in arr)
+            //{
+            //    System.Console.WriteLine(a);
+            //    textBox_print.Text += (a.ToString());
+            //    textBox_print.Text += "\r\n";
+            //}
+            
+            bool ans,myChoice;
+            myChoice = false; 
+            ans = flipCoinResult(myChoice);
+            bool flipCoinResult(bool choice)
             {
-                System.Console.WriteLine(a);
-                textBox_print.Text += a;
+                bool result;
+                Random random = new Random();
+                int randomNumber = random.Next(0, 10);
+                textBox_print.Text= randomNumber.ToString();
                 textBox_print.Text += "\r\n";
+                if (randomNumber % 2 == 0)
+                {
+                    result=true;
+                }
+                else
+                {
+                    result = false;
+                }
+                if (result==myChoice)
+                {
+                    return true;
+                }
+                return false;
             }
+            textBox_print.Text += (ans.ToString());
+
+
         }
+        //void add(int[] array)
+        //{
+        //    int a, b;
+        //    a=int.Parse(System.Console.ReadLine());
+        //    b=int.Parse(System.Console.ReadLine());
+        //    array[0] = a / b;
+        //    array[1] = a % b;
+        //} 
 
     }
 }
