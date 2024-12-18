@@ -79,7 +79,15 @@ namespace WindowsFormsApp_241216
                 }
                 return false;
             }
-            textBox_print.Text += (ans.ToString());
+            if (ans == false)
+            {
+                textBox_print.Text += "패배";
+            }
+            else
+            {
+                textBox_print.Text += "승리";
+            }
+            
 
 
         }
