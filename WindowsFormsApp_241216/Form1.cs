@@ -5,6 +5,9 @@ namespace WindowsFormsApp_241216
 {
     public partial class Form1 : Form
     {
+        bool myChoice = false;
+        bool ans;
+
         public Form1()
         {
             InitializeComponent();
@@ -54,32 +57,92 @@ namespace WindowsFormsApp_241216
             //    textBox_print.Text += (a.ToString());
             //    textBox_print.Text += "\r\n";
             //}
-            
-            bool ans,myChoice;
-            myChoice = false; 
-            ans = flipCoinResult(myChoice);
-            bool flipCoinResult(bool choice)
+
+
+            //bool myChoice=Button_Click();
+
+
+        }
+
+
+        bool flipCoinResult(bool choice)
+        {
+            bool result;
+            Random random = new Random();
+            int randomNumber = random.Next(0, 10);
+
+            SetMsgToTextBox(randomNumber.ToString());
+
+            if (randomNumber % 2 == 0)
             {
-                bool result;
-                Random random = new Random();
-                int randomNumber = random.Next(0, 10);
-                textBox_print.Text= randomNumber.ToString();
-                textBox_print.Text += "\r\n";
-                if (randomNumber % 2 == 0)
-                {
-                    result=true;
-                }
-                else
-                {
-                    result = false;
-                }
-                if (result==myChoice)
-                {
-                    return true;
-                }
-                return false;
+                result = true;
             }
-            if (ans == false)
+            else
+            {
+                result = false;
+            }
+            if (result == choice)
+            {
+                return true;
+            }
+            return false;
+        }
+
+        void SetMsgToTextBox(string msg)
+        {
+            textBox_print.Text += "random number : ";
+            textBox_print.Text += msg;
+            textBox_print.Text += "\r\n";
+        }
+
+        //private void Button_Click(object sender, EventArgs e)
+        //{
+        //    int num = int.Parse(textBox_input.Text);
+
+        //    textBox_print.Text += num.ToString();
+        //    textBox_print.Text += "  0  \r\n";
+
+        //    if (num % 2 == 0)
+        //    {
+        //        this.myChoice = true;
+        //    }
+        //    else
+        //    {
+        //        this.myChoice = false;
+        //    }
+        //    textBox_print.Text += "  1-1  \r\n";
+        //    textBox_print.Text += this.myChoice.ToString();
+        //    textBox_print.Text += "  1  \r\n";
+        //    this.ans = flipCoinResult(this.myChoice);
+
+        //    textBox_print.Text += this.ans.ToString();
+        //    textBox_print.Text += "  2  \r\n";
+        //    if (this.ans == false)
+        //    {
+        //        textBox_print.Text += "패배";
+        //    }
+        //    else
+        //    {
+        //        textBox_print.Text += "승리";
+        //    }
+        //}
+
+
+        //void add(int[] array)
+        //{
+        //    int a, b;
+        //    a = int.Parse(System.Console.ReadLine());
+        //    b = int.Parse(System.Console.ReadLine());
+        //    array[0] = a / b;
+        //    array[1] = a % b;
+        //}
+
+        private void radioButton_true_CheckedChanged(object sender, EventArgs e)
+        {
+            this.myChoice = true;
+            textBox_print.Text = "my Choice : TRUE\r\n";
+            this.ans = flipCoinResult(this.myChoice);
+            if (this.ans == false)
             {
                 textBox_print.Text += "패배";
             }
@@ -87,18 +150,47 @@ namespace WindowsFormsApp_241216
             {
                 textBox_print.Text += "승리";
             }
-            
-
-
         }
-        //void add(int[] array)
-        //{
-        //    int a, b;
-        //    a=int.Parse(System.Console.ReadLine());
-        //    b=int.Parse(System.Console.ReadLine());
-        //    array[0] = a / b;
-        //    array[1] = a % b;
-        //} 
+
+        private void radioButton_false_CheckedChanged(object sender, EventArgs e)
+        {
+            this.myChoice = false;
+            textBox_print.Text = "my Choice : FALSE\r\n";
+            this.ans = flipCoinResult(this.myChoice);
+            if (this.ans == false)
+            {
+                textBox_print.Text += "패배";
+            }
+            else
+            {
+                textBox_print.Text += "승리";
+            }
+        }
+        private void Button_Click(object sender, EventArgs e)
+        {
+            string str = textBox_input.Text;
+            textBox_print.Text = "my Choice : ";
+            textBox_print.Text += str;
+            textBox_print.Text += "\r\n";
+            if (str == "FALSE" || str == "false")
+            {
+                this.myChoice = false;
+            }
+            else if (str == "true" || str == "TRUE")
+            {
+                this.myChoice = true;
+            }
+            this.ans = flipCoinResult(this.myChoice);
+            if (this.ans == false)
+            {
+                textBox_print.Text += "패배";
+            }
+            else
+            {
+                textBox_print.Text += "승리";
+            }
+        }
+
 
     }
 }
