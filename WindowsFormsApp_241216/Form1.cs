@@ -180,6 +180,11 @@ namespace WindowsFormsApp_241216
             {
                 this.myChoice = true;
             }
+            else
+            {
+                textBox_print.Text = "Error!!! Check the spelling";
+                return;
+            }
             this.ans = flipCoinResult(this.myChoice);
             if (this.ans == false)
             {
