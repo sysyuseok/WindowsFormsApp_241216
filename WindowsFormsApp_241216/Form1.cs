@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Drawing;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace WindowsFormsApp_241216
 {
@@ -11,6 +13,7 @@ namespace WindowsFormsApp_241216
         public Form1()
         {
             InitializeComponent();
+            textBox_print.BackColor = Color.White;
             //string[] arr = new string[10];
             //arr[0] = "동해 물과 백두산이".IndexOf("백두산").ToString();
             //arr[1] = "토요일에 먹는 토마토".LastIndexOf("토").ToString();
