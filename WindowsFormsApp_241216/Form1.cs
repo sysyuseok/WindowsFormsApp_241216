@@ -7,13 +7,24 @@ namespace WindowsFormsApp_241216
 {
     public partial class Form1 : Form
     {
-        bool myChoice = false;
-        bool ans;
-
+        //bool myChoice = false;
+        //bool ans;
+        //enum Day{
+        //    monday,
+        //    tuesday,
+        //    wednesday,
+        //    thursday,
+        //    friday,
+        //    saturday,
+        //    sunday
+        //}
         public Form1()
         {
             InitializeComponent();
             textBox_print.BackColor = Color.White;
+            
+            #region 옛날코드
+
             //string[] arr = new string[10];
             //arr[0] = "동해 물과 백두산이".IndexOf("백두산").ToString();
             //arr[1] = "토요일에 먹는 토마토".LastIndexOf("토").ToString();
@@ -63,63 +74,133 @@ namespace WindowsFormsApp_241216
 
 
             //bool myChoice=Button_Click();
-
+            #endregion
 
         }
-
-
-        bool flipCoinResult(bool choice)
+        private void Button_Click(object sender, EventArgs e)
         {
-            bool result;
+            int num = int.Parse(textBox_input.Text);
+            int[] arr = new int[num+1];
             Random random = new Random();
-            int randomNumber = random.Next(0, 10);
-
-            SetMsgToTextBox(randomNumber.ToString());
-
-            if (randomNumber % 2 == 0)
+            for(int i = 1; i <= num; i++)
             {
-                result = true;
+                int randomNumber = random.Next(0, 100);
+                arr[i] = randomNumber;
+                textBox_print.Text += ("학생" + i.ToString() + "의 점수 : " + randomNumber.ToString() +"\r\n");
             }
-            else
-            {
-                result = false;
-            }
-            if (result == choice)
-            {
-                return true;
-            }
-            return false;
-        }
 
-        void SetMsgToTextBox(string msg)
-        {
-            textBox_print.Text += "random number : ";
-            textBox_print.Text += msg;
-            textBox_print.Text += "\r\n";
         }
 
         //private void Button_Click(object sender, EventArgs e)
         //{
-        //    int num = int.Parse(textBox_input.Text);
-
-        //    textBox_print.Text += num.ToString();
-        //    textBox_print.Text += "  0  \r\n";
-
-        //    if (num % 2 == 0)
+        //    string str=textBox_input.Text.Trim().ToLower();
+        //    this.Day.TryParce();
+        //    switch (day)
         //    {
-        //        this.myChoice = true;
+        //        case Day.monday:
+        //            textBox_print.Text = "Fuck you Monday";
+        //            break;
+        //        case Day.tuesday:
+        //            textBox_print.Text = "It's chuesday, innit!";
+        //            break;
+        //        case Day.wednesday:
+        //            textBox_print.Text = "Just half passed of the week";
+        //            break;
+        //        case Day.thursday:
+        //            textBox_print.Text = "Tomorrow is Friday";
+        //            break;
+        //        case Day.friday:
+        //            textBox_print.Text = "TGIF";
+        //            break;
+        //        case Day.saturday:
+        //            textBox_print.Text = "HAPPY WEEKEND";
+        //            break;
+        //        case Day.sunday:
+        //            textBox_print.Text = "JJAPAGHETTI YORISA!";
+        //            break;
+        //        default:
+        //            textBox_print.Text = "!!!!WRONG!!!!!WARNING!!!!";
+        //            break;
+        //    }
+        //    return;
+        #region hi
+        //bool flipCoinResult(bool choice)
+        //{
+        //    bool result;
+        //    Random random = new Random();
+        //    int randomNumber = random.Next(0, 10);
+
+        //    SetMsgToTextBox(randomNumber.ToString());
+
+        //    if (randomNumber % 2 == 0)
+        //    {
+        //        result = true;
         //    }
         //    else
         //    {
-        //        this.myChoice = false;
+        //        result = false;
         //    }
-        //    textBox_print.Text += "  1-1  \r\n";
-        //    textBox_print.Text += this.myChoice.ToString();
-        //    textBox_print.Text += "  1  \r\n";
-        //    this.ans = flipCoinResult(this.myChoice);
+        //    if (result == choice)
+        //    {
+        //        return true;
+        //    }
+        //    return false;
+        //}
 
-        //    textBox_print.Text += this.ans.ToString();
-        //    textBox_print.Text += "  2  \r\n";
+        //void SetMsgToTextBox(string msg)
+        //{
+        //    textBox_print.Text += "random number : ";
+        //    textBox_print.Text += msg;
+        //    textBox_print.Text += "\r\n";
+        //}
+
+        ////private void Button_Click(object sender, EventArgs e)
+        ////{
+        ////    int num = int.Parse(textBox_input.Text);
+
+        ////    textBox_print.Text += num.ToString();
+        ////    textBox_print.Text += "  0  \r\n";
+
+        ////    if (num % 2 == 0)
+        ////    {
+        ////        this.myChoice = true;
+        ////    }
+        ////    else
+        ////    {
+        ////        this.myChoice = false;
+        ////    }
+        ////    textBox_print.Text += "  1-1  \r\n";
+        ////    textBox_print.Text += this.myChoice.ToString();
+        ////    textBox_print.Text += "  1  \r\n";
+        ////    this.ans = flipCoinResult(this.myChoice);
+
+        ////    textBox_print.Text += this.ans.ToString();
+        ////    textBox_print.Text += "  2  \r\n";
+        ////    if (this.ans == false)
+        ////    {
+        ////        textBox_print.Text += "패배";
+        ////    }
+        ////    else
+        ////    {
+        ////        textBox_print.Text += "승리";
+        ////    }
+        ////}
+
+
+        ////void add(int[] array)
+        ////{
+        ////    int a, b;
+        ////    a = int.Parse(System.Console.ReadLine());
+        ////    b = int.Parse(System.Console.ReadLine());
+        ////    array[0] = a / b;
+        ////    array[1] = a % b;
+        ////}
+
+        //private void radioButton_true_CheckedChanged(object sender, EventArgs e)
+        //{
+        //    this.myChoice = true;
+        //    textBox_print.Text = "my Choice : TRUE\r\n";
+        //    this.ans = flipCoinResult(this.myChoice);
         //    if (this.ans == false)
         //    {
         //        textBox_print.Text += "패배";
@@ -130,75 +211,50 @@ namespace WindowsFormsApp_241216
         //    }
         //}
 
-
-        //void add(int[] array)
+        //private void radioButton_false_CheckedChanged(object sender, EventArgs e)
         //{
-        //    int a, b;
-        //    a = int.Parse(System.Console.ReadLine());
-        //    b = int.Parse(System.Console.ReadLine());
-        //    array[0] = a / b;
-        //    array[1] = a % b;
+        //    this.myChoice = false;
+        //    textBox_print.Text = "my Choice : FALSE\r\n";
+        //    this.ans = flipCoinResult(this.myChoice);
+        //    if (this.ans == false)
+        //    {
+        //        textBox_print.Text += "패배";
+        //    }
+        //    else
+        //    {
+        //        textBox_print.Text += "승리";
+        //    }
         //}
-
-        private void radioButton_true_CheckedChanged(object sender, EventArgs e)
-        {
-            this.myChoice = true;
-            textBox_print.Text = "my Choice : TRUE\r\n";
-            this.ans = flipCoinResult(this.myChoice);
-            if (this.ans == false)
-            {
-                textBox_print.Text += "패배";
-            }
-            else
-            {
-                textBox_print.Text += "승리";
-            }
-        }
-
-        private void radioButton_false_CheckedChanged(object sender, EventArgs e)
-        {
-            this.myChoice = false;
-            textBox_print.Text = "my Choice : FALSE\r\n";
-            this.ans = flipCoinResult(this.myChoice);
-            if (this.ans == false)
-            {
-                textBox_print.Text += "패배";
-            }
-            else
-            {
-                textBox_print.Text += "승리";
-            }
-        }
-        private void Button_Click(object sender, EventArgs e)
-        {
-            string str = textBox_input.Text;
-            textBox_print.Text = "my Choice : ";
-            textBox_print.Text += str;
-            textBox_print.Text += "\r\n";
-            if (str == "FALSE" || str == "false")
-            {
-                this.myChoice = false;
-            }
-            else if (str == "true" || str == "TRUE")
-            {
-                this.myChoice = true;
-            }
-            else
-            {
-                textBox_print.Text = "Error!!! Check the spelling";
-                return;
-            }
-            this.ans = flipCoinResult(this.myChoice);
-            if (this.ans == false)
-            {
-                textBox_print.Text += "패배";
-            }
-            else
-            {
-                textBox_print.Text += "승리";
-            }
-        }
-
-
+        //private void Button_Click(object sender, EventArgs e)
+        //{
+        //    string str = textBox_input.Text;
+        //    textBox_print.Text = "my Choice : ";
+        //    textBox_print.Text += str;
+        //    textBox_print.Text += "\r\n";
+        //    if (str == "FALSE" || str == "false")
+        //    {
+        //        this.myChoice = false;
+        //    }
+        //    else if (str == "true" || str == "TRUE")
+        //    {
+        //        this.myChoice = true;
+        //    }
+        //    else
+        //    {
+        //        textBox_print.Text = "Error!!! Check the spelling";
+        //        return;
+        //    }
+        //    this.ans = flipCoinResult(this.myChoice);
+        //    if (this.ans == false)
+        //    {
+        //        textBox_print.Text += "패배";
+        //    }
+        //    else
+        //    {
+        //        textBox_print.Text += "승리";
+        //    }
+        #endregion
     }
+
+
 }

@@ -86,7 +86,7 @@
             this.radioButton_true.TabStop = true;
             this.radioButton_true.Text = "TRUE";
             this.radioButton_true.UseVisualStyleBackColor = true;
-            this.radioButton_true.CheckedChanged += new System.EventHandler(this.radioButton_true_CheckedChanged);
+//            this.radioButton_true.CheckedChanged += new System.EventHandler(this.radioButton_true_CheckedChanged);
             // 
             // radioButton_false
             // 
@@ -98,7 +98,7 @@
             this.radioButton_false.TabStop = true;
             this.radioButton_false.Text = "FALSE";
             this.radioButton_false.UseVisualStyleBackColor = true;
-            this.radioButton_false.CheckedChanged += new System.EventHandler(this.radioButton_false_CheckedChanged);
+//            this.radioButton_false.CheckedChanged += new System.EventHandler(this.radioButton_false_CheckedChanged);
             // 
             // Form1
             // 
