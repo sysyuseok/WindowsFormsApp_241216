@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Drawing;
+using System.Net.Sockets;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
@@ -7,6 +8,9 @@ namespace WindowsFormsApp_241216
 {
     public partial class Form1 : Form
     {
+        int[][] score = new int[3][];
+        int[] sub = new int[3];
+        //int s = -1;
         //bool myChoice = false;
         //bool ans;
         //enum Day{
@@ -80,16 +84,51 @@ namespace WindowsFormsApp_241216
         private void Button_Click(object sender, EventArgs e)
         {
             int num = int.Parse(textBox_input.Text);
-            int[] arr = new int[num+1];
+            for (int i = 0; i < score.Length; i++)
+            {
+                this.score[i] = new int[num + 1]; // 각 내부 배열의 크기를 지정
+            }
             Random random = new Random();
             for(int i = 1; i <= num; i++)
             {
-                int randomNumber = random.Next(0, 100);
-                arr[i] = randomNumber;
-                textBox_print.Text += ("학생" + i.ToString() + "의 점수 : " + randomNumber.ToString() +"\r\n");
+                for(int j = 0; j < 3; j++)
+                {
+                    int randomNumber = random.Next(0, 100);
+                    score[j][i] = randomNumber;
+                }
             }
-
         }
+        private void Student_num_Click(object sender, EventArgs e)
+        {
+            int num = int.Parse(textBox_input.Text);
+            textBox_print.Text = "";
+            for (int i = 0; i < 3; i++) {
+                if (this.sub[i] == 0) continue;
+                textBox_print.Text += ("학생" + num.ToString() + "의");
+                if (i == 0) textBox_print.Text += "영어";
+                else if (i == 1) textBox_print.Text += "수학";
+                else textBox_print.Text += "국어";
+                textBox_print.Text+=("점수 : " + this.score[i][num].ToString() + "\r\n");
+            }
+        }
+        private void checkBox_english_CheckedChanged(object sender, EventArgs e)
+        {
+            //textBox_print.Text += "1111\r\n";
+            this.sub[0] = (this.sub[0]+1)%2;
+        }
+        private void checkBox_math_CheckedChanged(object sender, EventArgs e)
+        {
+            //textBox_print.Text += "2222\r\n";
+            this.sub[1] = (this.sub[1] + 1) % 2;
+        }
+        private void checkBox_korean_CheckedChanged(object sender, EventArgs e)
+        {
+            //textBox_print.Text += "3333\r\n";
+            this.sub[2] = (this.sub[2] + 1) % 2;
+        }
+
+
+
 
         //private void Button_Click(object sender, EventArgs e)
         //{
@@ -254,6 +293,8 @@ namespace WindowsFormsApp_241216
         //        textBox_print.Text += "승리";
         //    }
         #endregion
+
+        
     }
 
 

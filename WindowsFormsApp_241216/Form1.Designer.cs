@@ -32,8 +32,13 @@
             this.textBox_print = new System.Windows.Forms.TextBox();
             this.textBox_input = new System.Windows.Forms.TextBox();
             this.Button = new System.Windows.Forms.Button();
-            this.radioButton_true = new System.Windows.Forms.RadioButton();
-            this.radioButton_false = new System.Windows.Forms.RadioButton();
+            this.radioButton_english = new System.Windows.Forms.RadioButton();
+            this.radioButton_math = new System.Windows.Forms.RadioButton();
+            this.Student_num = new System.Windows.Forms.Button();
+            this.radioButton_korean = new System.Windows.Forms.RadioButton();
+            this.checkBox_english = new System.Windows.Forms.CheckBox();
+            this.checkBox_math = new System.Windows.Forms.CheckBox();
+            this.checkBox_korean = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // label1
@@ -76,37 +81,93 @@
             this.Button.UseVisualStyleBackColor = true;
             this.Button.Click += new System.EventHandler(this.Button_Click);
             // 
-            // radioButton_true
+            // radioButton_english
             // 
-            this.radioButton_true.AutoSize = true;
-            this.radioButton_true.Location = new System.Drawing.Point(48, 66);
-            this.radioButton_true.Name = "radioButton_true";
-            this.radioButton_true.Size = new System.Drawing.Size(65, 19);
-            this.radioButton_true.TabIndex = 3;
-            this.radioButton_true.TabStop = true;
-            this.radioButton_true.Text = "TRUE";
-            this.radioButton_true.UseVisualStyleBackColor = true;
-//            this.radioButton_true.CheckedChanged += new System.EventHandler(this.radioButton_true_CheckedChanged);
+            this.radioButton_english.AutoSize = true;
+            this.radioButton_english.Location = new System.Drawing.Point(48, 66);
+            this.radioButton_english.Name = "radioButton_english";
+            this.radioButton_english.Size = new System.Drawing.Size(75, 19);
+            this.radioButton_english.TabIndex = 3;
+            this.radioButton_english.TabStop = true;
+            this.radioButton_english.Text = "English";
+            this.radioButton_english.UseVisualStyleBackColor = true;
             // 
-            // radioButton_false
+            // radioButton_math
             // 
-            this.radioButton_false.AutoSize = true;
-            this.radioButton_false.Location = new System.Drawing.Point(188, 65);
-            this.radioButton_false.Name = "radioButton_false";
-            this.radioButton_false.Size = new System.Drawing.Size(72, 19);
-            this.radioButton_false.TabIndex = 6;
-            this.radioButton_false.TabStop = true;
-            this.radioButton_false.Text = "FALSE";
-            this.radioButton_false.UseVisualStyleBackColor = true;
-//            this.radioButton_false.CheckedChanged += new System.EventHandler(this.radioButton_false_CheckedChanged);
+            this.radioButton_math.AutoSize = true;
+            this.radioButton_math.Location = new System.Drawing.Point(188, 65);
+            this.radioButton_math.Name = "radioButton_math";
+            this.radioButton_math.Size = new System.Drawing.Size(60, 19);
+            this.radioButton_math.TabIndex = 6;
+            this.radioButton_math.TabStop = true;
+            this.radioButton_math.Text = "Math";
+            // 
+            // Student_num
+            // 
+            this.Student_num.Location = new System.Drawing.Point(413, 62);
+            this.Student_num.Name = "Student_num";
+            this.Student_num.Size = new System.Drawing.Size(134, 23);
+            this.Student_num.TabIndex = 7;
+            this.Student_num.Text = "student num\r\n";
+            this.Student_num.UseVisualStyleBackColor = true;
+            this.Student_num.Click += new System.EventHandler(this.Student_num_Click);
+            // 
+            // radioButton_korean
+            // 
+            this.radioButton_korean.AutoSize = true;
+            this.radioButton_korean.Location = new System.Drawing.Point(296, 65);
+            this.radioButton_korean.Name = "radioButton_korean";
+            this.radioButton_korean.Size = new System.Drawing.Size(73, 19);
+            this.radioButton_korean.TabIndex = 8;
+            this.radioButton_korean.TabStop = true;
+            this.radioButton_korean.Text = "Korean";
+            this.radioButton_korean.UseVisualStyleBackColor = true;
+            // 
+            // checkBox_english
+            // 
+            this.checkBox_english.AutoSize = true;
+            this.checkBox_english.Location = new System.Drawing.Point(48, 65);
+            this.checkBox_english.Name = "checkBox_english";
+            this.checkBox_english.Size = new System.Drawing.Size(76, 19);
+            this.checkBox_english.TabIndex = 9;
+            this.checkBox_english.Text = "English";
+            this.checkBox_english.UseVisualStyleBackColor = true;
+            this.checkBox_english.CheckedChanged += new System.EventHandler(this.checkBox_english_CheckedChanged);
+            // 
+            // checkBox_math
+            // 
+            this.checkBox_math.AutoSize = true;
+            this.checkBox_math.Location = new System.Drawing.Point(186, 66);
+            this.checkBox_math.Name = "checkBox_math";
+            this.checkBox_math.Size = new System.Drawing.Size(61, 19);
+            this.checkBox_math.TabIndex = 10;
+            this.checkBox_math.Text = "Math";
+            this.checkBox_math.UseVisualStyleBackColor = true;
+            this.checkBox_math.CheckedChanged += new System.EventHandler(this.checkBox_math_CheckedChanged);
+            // 
+            // checkBox_korean
+            // 
+            this.checkBox_korean.AutoSize = true;
+            this.checkBox_korean.Location = new System.Drawing.Point(296, 66);
+            this.checkBox_korean.Name = "checkBox_korean";
+            this.checkBox_korean.Size = new System.Drawing.Size(74, 19);
+            this.checkBox_korean.TabIndex = 11;
+            this.checkBox_korean.Text = "Korean";
+            this.checkBox_korean.UseVisualStyleBackColor = true;
+            this.checkBox_korean.CheckedChanged += new System.EventHandler(this.checkBox_korean_CheckedChanged);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(914, 562);
-            this.Controls.Add(this.radioButton_false);
-            this.Controls.Add(this.radioButton_true);
+            this.Controls.Add(this.checkBox_korean);
+            this.Controls.Add(this.checkBox_math);
+            this.Controls.Add(this.checkBox_english);
+            this.Controls.Add(this.radioButton_korean);
+            this.Controls.Add(this.Student_num);
+            this.Controls.Add(this.radioButton_math);
+            this.Controls.Add(this.radioButton_english);
             this.Controls.Add(this.Button);
             this.Controls.Add(this.textBox_input);
             this.Controls.Add(this.textBox_print);
@@ -125,8 +186,13 @@
         private System.Windows.Forms.TextBox textBox_print;
         private System.Windows.Forms.TextBox textBox_input;
         private System.Windows.Forms.Button Button;
-        private System.Windows.Forms.RadioButton radioButton_true;
-        private System.Windows.Forms.RadioButton radioButton_false;
+        private System.Windows.Forms.RadioButton radioButton_english;
+        private System.Windows.Forms.RadioButton radioButton_math;
+        private System.Windows.Forms.Button Student_num;
+        private System.Windows.Forms.RadioButton radioButton_korean;
+        private System.Windows.Forms.CheckBox checkBox_english;
+        private System.Windows.Forms.CheckBox checkBox_math;
+        private System.Windows.Forms.CheckBox checkBox_korean;
     }
 }
 
