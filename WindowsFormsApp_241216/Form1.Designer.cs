@@ -128,7 +128,7 @@
             // checkBox_english
             // 
             this.checkBox_english.AutoSize = true;
-            this.checkBox_english.Location = new System.Drawing.Point(48, 65);
+            this.checkBox_english.Location = new System.Drawing.Point(79, 476);
             this.checkBox_english.Name = "checkBox_english";
             this.checkBox_english.Size = new System.Drawing.Size(76, 19);
             this.checkBox_english.TabIndex = 9;
@@ -139,7 +139,7 @@
             // checkBox_math
             // 
             this.checkBox_math.AutoSize = true;
-            this.checkBox_math.Location = new System.Drawing.Point(186, 66);
+            this.checkBox_math.Location = new System.Drawing.Point(174, 476);
             this.checkBox_math.Name = "checkBox_math";
             this.checkBox_math.Size = new System.Drawing.Size(61, 19);
             this.checkBox_math.TabIndex = 10;
@@ -150,7 +150,7 @@
             // checkBox_korean
             // 
             this.checkBox_korean.AutoSize = true;
-            this.checkBox_korean.Location = new System.Drawing.Point(296, 66);
+            this.checkBox_korean.Location = new System.Drawing.Point(253, 476);
             this.checkBox_korean.Name = "checkBox_korean";
             this.checkBox_korean.Size = new System.Drawing.Size(74, 19);
             this.checkBox_korean.TabIndex = 11;
