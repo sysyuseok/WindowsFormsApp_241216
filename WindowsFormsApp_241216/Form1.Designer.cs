@@ -39,6 +39,8 @@
             this.checkBox_english = new System.Windows.Forms.CheckBox();
             this.checkBox_math = new System.Windows.Forms.CheckBox();
             this.checkBox_korean = new System.Windows.Forms.CheckBox();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -58,7 +60,7 @@
             this.textBox_print.Multiline = true;
             this.textBox_print.Name = "textBox_print";
             this.textBox_print.ReadOnly = true;
-            this.textBox_print.Size = new System.Drawing.Size(490, 288);
+            this.textBox_print.Size = new System.Drawing.Size(334, 288);
             this.textBox_print.TabIndex = 2;
             this.textBox_print.UseWaitCursor = true;
             // 
@@ -156,11 +158,22 @@
             this.checkBox_korean.UseVisualStyleBackColor = true;
             this.checkBox_korean.CheckedChanged += new System.EventHandler(this.checkBox_korean_CheckedChanged);
             // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(363, 128);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersWidth = 51;
+            this.dataGridView1.RowTemplate.Height = 27;
+            this.dataGridView1.Size = new System.Drawing.Size(539, 253);
+            this.dataGridView1.TabIndex = 12;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(914, 562);
+            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.checkBox_korean);
             this.Controls.Add(this.checkBox_math);
             this.Controls.Add(this.checkBox_english);
@@ -175,6 +188,7 @@
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "Form1";
             this.Text = "Form1";
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -193,6 +207,7 @@
         private System.Windows.Forms.CheckBox checkBox_english;
         private System.Windows.Forms.CheckBox checkBox_math;
         private System.Windows.Forms.CheckBox checkBox_korean;
+        private System.Windows.Forms.DataGridView dataGridView1;
     }
 }
 

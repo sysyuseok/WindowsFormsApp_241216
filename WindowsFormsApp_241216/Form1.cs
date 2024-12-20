@@ -2,6 +2,7 @@
 using System.Drawing;
 using System.Net.Sockets;
 using System.Windows.Forms;
+using System.IO;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace WindowsFormsApp_241216
@@ -10,6 +11,7 @@ namespace WindowsFormsApp_241216
     {
         int[][] score = new int[3][];
         int[] sub = new int[3];
+        int N;
         //int s = -1;
         //bool myChoice = false;
         //bool ans;
@@ -26,7 +28,8 @@ namespace WindowsFormsApp_241216
         {
             InitializeComponent();
             textBox_print.BackColor = Color.White;
-            
+            textBox_print.Text = "Initialize score board with input button\r\nPress student num button when you want to get the specific student\r\n";
+            textBox_print.Text += "student num : 0 can call all the datas";
             #region 옛날코드
 
             //string[] arr = new string[10];
@@ -81,15 +84,35 @@ namespace WindowsFormsApp_241216
             #endregion
 
         }
+        private void SaveToCsv(string filePath)
+        {
+            using (StreamWriter writer = new StreamWriter(filePath))
+            {
+                // CSV의 헤더 작성 (옵션)
+                writer.WriteLine("SNUM,English,Math,Korean");
+
+                // 점수 데이터를 CSV로 작성
+                for (int i = 1; i <= N; i++) // 학생 번호 1부터 N까지
+                {
+                    string[] row = new string[4]; // 학생번호 + 3과목
+                    row[0] = i.ToString(); // 학생 번호
+                    for (int j = 0; j < 3; j++) // 영어, 수학, 국어 점수
+                    {
+                        row[j + 1] = this.score[j][i].ToString();
+                    }
+                    writer.WriteLine(string.Join(",", row)); // 쉼표로 구분하여 작성
+                }
+            }
+        }
         private void Button_Click(object sender, EventArgs e)
         {
-            int num = int.Parse(textBox_input.Text);
+            this.N = int.Parse(textBox_input.Text);
             for (int i = 0; i < score.Length; i++)
             {
-                this.score[i] = new int[num + 1]; // 각 내부 배열의 크기를 지정
+                this.score[i] = new int[N + 1]; // 각 내부 배열의 크기를 지정
             }
             Random random = new Random();
-            for(int i = 1; i <= num; i++)
+            for(int i = 1; i <= N; i++)
             {
                 for(int j = 0; j < 3; j++)
                 {
@@ -97,19 +120,64 @@ namespace WindowsFormsApp_241216
                     score[j][i] = randomNumber;
                 }
             }
+            LoadData();
+            string filePath = "C:\\Users\\YUSEOK SON\\source\\repos\\WindowsFormsApp_241216\\WindowsFormsApp_241216\\scores.csv"; // 파일 경로를 적절히 변경하세요.
+
+            // 파일 저장
+            try
+            {
+                SaveToCsv(filePath);
+                textBox_print.Text = "CSV 파일이 성공적으로 저장되었습니다: " + filePath;
+            }
+            catch (Exception ex)
+            {
+                textBox_print.Text = "파일 저장 중 오류가 발생했습니다: " + ex.Message;
+            }
         }
+        
         private void Student_num_Click(object sender, EventArgs e)
         {
             int num = int.Parse(textBox_input.Text);
             textBox_print.Text = "";
-            for (int i = 0; i < 3; i++) {
-                if (this.sub[i] == 0) continue;
-                textBox_print.Text += ("학생" + num.ToString() + "의");
-                if (i == 0) textBox_print.Text += "영어";
-                else if (i == 1) textBox_print.Text += "수학";
-                else textBox_print.Text += "국어";
-                textBox_print.Text+=("점수 : " + this.score[i][num].ToString() + "\r\n");
+            if (num == 0)
+            {
+                textBox_print.Text += "   영어  수학  국어\r\n";
+                for (int i = 1; i <= this.N; i++)
+                {
+                    textBox_print.Text += (i.ToString()+"  ");
+                    for (int j = 0; j < 3; j++)
+                    {
+                        textBox_print.Text += (this.score[j][i].ToString() + "    ");
+                        if (this.score[j][i] < 100  )
+                        {
+                            textBox_print.Text += "  ";
+                        }
+                        if (this.score[j][i] < 10)
+                        {
+                            textBox_print.Text += "  ";
+                        }
+
+                    }
+                    textBox_print.Text += "\r\n";
+                }
             }
+            else if(num<=N)
+            {
+                for (int i = 0; i < 3; i++)
+                {
+                    if (this.sub[i] == 0) continue;
+                    textBox_print.Text += ("학생" + num.ToString() + "의");
+                    if (i == 0) textBox_print.Text += "영어";
+                    else if (i == 1) textBox_print.Text += "수학";
+                    else textBox_print.Text += "국어";
+                    textBox_print.Text += ("점수 : " + this.score[i][num].ToString() + "\r\n");
+                }
+            }
+            else
+            {
+                textBox_print.Text = "Out Of Range!!!";
+            }
+            
         }
         private void checkBox_english_CheckedChanged(object sender, EventArgs e)
         {
@@ -126,6 +194,7 @@ namespace WindowsFormsApp_241216
             //textBox_print.Text += "3333\r\n";
             this.sub[2] = (this.sub[2] + 1) % 2;
         }
+
 
 
 
@@ -294,7 +363,35 @@ namespace WindowsFormsApp_241216
         //    }
         #endregion
 
-        
+        private void LoadData()
+        {
+            // 2차원 배열 생성
+            string[,] data = new string[,]
+            {
+                { "Alice", "30", "서울" },
+                { "Bob", "25", "부산" },
+                { "Charlie", "35", "대구" }
+            };
+
+            // DataGridView 초기화
+            dataGridView1.ColumnCount = 4; // 열 수 설정
+            dataGridView1.Columns[0].Name = "학생";
+            dataGridView1.Columns[1].Name = "영어";
+            dataGridView1.Columns[2].Name = "수학";
+            dataGridView1.Columns[3].Name = "국어";
+            // 배열의 데이터를 DataGridView에 추가
+            for (int i = 1; i < N; i++)
+            {
+                string[] row = new string[4];
+                row[0] = i.ToString();
+                for (int j = 1; j <= 3; j++)
+                {
+                    row[j] = this.score[j-1][i].ToString();
+                }
+                dataGridView1.Rows.Add(row);
+            }
+        }
+
     }
 
 
